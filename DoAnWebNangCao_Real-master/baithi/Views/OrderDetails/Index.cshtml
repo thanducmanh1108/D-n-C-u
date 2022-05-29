@@ -1,0 +1,47 @@
+﻿@model IEnumerable<baithi.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Hóa đơn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<table class="table">
+    <tr>
+        <th>
+            ID hóa đơn
+        </th>
+        <th>
+            Tổng hóa đơn
+        </th>
+        <th>
+            Ngày mua
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr class="test1 @item.idorder">
+    <td>
+        <input class="test1 @item.idorder" style="display: none"/>
+        @Html.DisplayFor(modelItem => item.idorder)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tonghoadon) VNĐ
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ngaymua)
+    </td>
+    <td class="custom-icon">
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+    @*<script>
+        $(".test1.@item.idorder").css("display", "none");
+        $(".test1.@item.idorder:nth-child(1)").css("display", "block !important");
+    </script>*@
+</tr>
+    
+}
+
+</table>

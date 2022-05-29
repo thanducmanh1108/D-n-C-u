@@ -1,0 +1,71 @@
+﻿@model IEnumerable<baithi.Models.nv>
+
+@{
+    ViewBag.Title = "Nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên nhân viên
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Năm sinh
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Chức vụ
+        </th>
+        <th>
+            Lương cơ bản
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tennv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gioitinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.namsinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diachi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chucvu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.luong)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.IDnv }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.IDnv })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p class="create">
+    @Html.ActionLink("Tạo nhân viên mới", "Create")
+</p>

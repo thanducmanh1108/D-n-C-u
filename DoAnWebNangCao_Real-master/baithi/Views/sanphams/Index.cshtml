@@ -1,0 +1,101 @@
+﻿@model IEnumerable<baithi.Models.ViewSanPham>
+
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <p class="box-search">
+        @Html.TextBox("SearchString") <button type="submit" value="Tìm kiếm"><i class="fas fa-search"></i></button>
+    </p>
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @TempData["AlertMessage"]
+    </div>
+}
+<script>
+    $("#AlertBox").removeClass("hide");
+    $("#AlertBox").delay(3000).slideUp(500);
+</script>
+<p class="create" style="text-align:left">
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Size
+        </th>
+        <th>
+            Loại
+        </th>
+        <th>
+            Hãng
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Giá thành
+        </th>
+        <th>
+            Ảnh
+        </th>
+        <th>
+            Tên kho
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Hành động
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tensp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.giathanh)
+            </td>
+            <td>
+                <img src="Images/@item.anh" style="width:60px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKho)
+            </td>
+            <td class="desc-product-sp">
+                @Html.DisplayFor(modelItem => item.mota)
+            </td>
+            <td class="custom-icon">
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.IDsp }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.IDsp })
+            </td>
+        </tr>
+    }
+
+</table>
+

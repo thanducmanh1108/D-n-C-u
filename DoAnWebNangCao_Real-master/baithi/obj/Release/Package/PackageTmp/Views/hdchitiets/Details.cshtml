@@ -1,0 +1,83 @@
+﻿@model baithi.Models.hdchitiet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hdchitiet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDsp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDsp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDkhachhang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDkhachhang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soluong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dongia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dongia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thanhtien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thanhtien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tensp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tensp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDnv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDnv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDchietkhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDchietkhau)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDhoadon }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

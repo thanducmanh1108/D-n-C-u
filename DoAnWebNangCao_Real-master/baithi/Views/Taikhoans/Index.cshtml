@@ -1,0 +1,46 @@
+﻿@model IEnumerable<baithi.Models.Taikhoan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pass_word)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.full_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pass_word)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.full_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

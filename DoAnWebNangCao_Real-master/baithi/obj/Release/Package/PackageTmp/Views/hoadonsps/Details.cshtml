@@ -1,0 +1,43 @@
+﻿@model baithi.Models.hoadonsp
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hoadonsp</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDkhachhang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDkhachhang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngayban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngayban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tongtien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tongtien)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDhoadon }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

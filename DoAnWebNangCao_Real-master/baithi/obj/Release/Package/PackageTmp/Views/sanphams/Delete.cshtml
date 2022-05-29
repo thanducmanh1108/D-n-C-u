@@ -1,0 +1,96 @@
+﻿@model baithi.Models.sanpham
+
+@{
+    ViewBag.Title = "Xóa sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal delete-product">
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tensp)
+        </dd>
+
+        <dt>
+            Size
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.size)
+        </dd>
+
+        <dt>
+            Loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loai)
+        </dd>
+
+        <dt>
+            Hãng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hang)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluong)
+        </dd>
+
+        <dt>
+            Giá thành
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giathanh)
+        </dd>
+
+        <dt>
+            Ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anh)
+        </dd>
+
+        <dt>
+            Tên Kho
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenkho)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa sản phẩm" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại trang sản phẩm", "Index")
+        </div>
+    }
+</div>

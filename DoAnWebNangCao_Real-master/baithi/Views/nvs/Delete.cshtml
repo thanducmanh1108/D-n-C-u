@@ -1,0 +1,78 @@
+﻿@model baithi.Models.nv
+
+@{
+    ViewBag.Title = "Xóa nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tennv)
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gioitinh)
+        </dd>
+
+        <dt>
+            Năm sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.namsinh)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            Chức vụ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chucvu)
+        </dd>
+
+        <dt>
+            Lương cơ bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.luong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa nhân viên" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại trang nhân viên", "Index")
+        </div>
+    }
+</div>

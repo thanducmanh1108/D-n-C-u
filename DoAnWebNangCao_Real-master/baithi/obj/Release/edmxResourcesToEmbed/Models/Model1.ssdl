@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlydocauModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="doanhthu">
+    <Key>
+      <PropertyRef Name="iddoanhthu" />
+    </Key>
+    <Property Name="iddoanhthu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ngaykiem" Type="date" />
+    <Property Name="doanhthuthu" Type="nvarchar" MaxLength="50" />
+    <Property Name="doanhthuchi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hang">
+    <Key>
+      <PropertyRef Name="IDhang" />
+    </Key>
+    <Property Name="IDhang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenhang" Type="nvarchar" MaxLength="50" />
+    <Property Name="xuatxu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hdchitiet">
+    <Key>
+      <PropertyRef Name="IDhdct" />
+    </Key>
+    <Property Name="IDhdct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDkhachhang" Type="int" />
+    <Property Name="tensp" Type="nvarchar" MaxLength="50" />
+    <Property Name="soluong" Type="int" />
+    <Property Name="dongia" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDnv" Type="int" />
+    <Property Name="IDchietkhau" Type="int" />
+    <Property Name="thanhtien" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hoadonsp">
+    <Key>
+      <PropertyRef Name="IDhoadon" />
+    </Key>
+    <Property Name="IDhoadon" Type="int" Nullable="false" />
+    <Property Name="IDkhachhang" Type="int" />
+    <Property Name="ngayban" Type="date" />
+    <Property Name="tongtien" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kh_hang">
+    <Key>
+      <PropertyRef Name="IDkhachhang" />
+    </Key>
+    <Property Name="IDkhachhang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenkhachhang" Type="nvarchar" MaxLength="50" />
+    <Property Name="sdt" Type="varchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="khohang">
+    <Key>
+      <PropertyRef Name="IDkho" />
+    </Key>
+    <Property Name="IDkho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenkho" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="loai">
+    <Key>
+      <PropertyRef Name="IDloai" />
+    </Key>
+    <Property Name="IDloai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenloai" Type="nvarchar" MaxLength="50" />
+    <Property Name="congdung" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ncc">
+    <Key>
+      <PropertyRef Name="IDncc" />
+    </Key>
+    <Property Name="IDncc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenncc" Type="nvarchar" MaxLength="50" />
+    <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="nv">
+    <Key>
+      <PropertyRef Name="IDnv" />
+    </Key>
+    <Property Name="IDnv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tennv" Type="nvarchar" MaxLength="50" />
+    <Property Name="gioitinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="namsinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+    <Property Name="chucvu" Type="nvarchar" MaxLength="50" />
+    <Property Name="luong" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDkhach" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idsanpham" Type="int" />
+    <Property Name="soluongmua" Type="int" />
+    <Property Name="tongtien" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="idorder" Type="int" />
+    <Property Name="tensp" Type="nvarchar(max)" />
+    <Property Name="tonghoadon" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sanpham">
+    <Key>
+      <PropertyRef Name="IDsp" />
+    </Key>
+    <Property Name="IDsp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tensp" Type="nvarchar" MaxLength="50" />
+    <Property Name="size" Type="nvarchar" MaxLength="50" />
+    <Property Name="loai" Type="int" />
+    <Property Name="hang" Type="int" />
+    <Property Name="soluong" Type="int" />
+    <Property Name="giathanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="anh" Type="nvarchar(max)" />
+    <Property Name="tenkho" Type="int" />
+    <Property Name="mota" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Taikhoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="pass_word" Type="nvarchar" MaxLength="50" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="quanlydocauModelStoreContainer">
+    <EntitySet Name="doanhthu" EntityType="Self.doanhthu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hang" EntityType="Self.hang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hdchitiet" EntityType="Self.hdchitiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hoadonsp" EntityType="Self.hoadonsp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kh_hang" EntityType="Self.kh_hang" Schema="dbo" Table="kh.hang" store:Type="Tables" />
+    <EntitySet Name="khohang" EntityType="Self.khohang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loai" EntityType="Self.loai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ncc" EntityType="Self.ncc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nv" EntityType="Self.nv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sanpham" EntityType="Self.sanpham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Taikhoan" EntityType="Self.Taikhoan" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿@model baithi.Models.kh_hang
+
+@{
+    ViewBag.Title = "Xóa khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenkhachhang)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa khách hàng" class="btn btn-default" /> |
+            @Html.ActionLink("Quay trở lại trang khách hàng", "Index")
+        </div>
+    }
+</div>

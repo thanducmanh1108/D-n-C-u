@@ -1,0 +1,39 @@
+﻿@model baithi.Models.hang
+
+@{
+    ViewBag.Title = "Xóa hãng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên hãng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenhang)
+        </dd>
+
+        <dt>
+            Xuất xứ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.xuatxu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa hãng" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại trang hãng", "Index")
+        </div>
+    }
+</div>

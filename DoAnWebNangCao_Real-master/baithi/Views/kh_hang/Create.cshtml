@@ -1,0 +1,52 @@
+﻿@model baithi.Models.kh_hang
+
+@{
+    ViewBag.Title = "Khách hàng mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Tên khách hàng</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.tenkhachhang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.tenkhachhang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Số điện thoại</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sdt, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sdt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Địa chỉ</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.diachi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm khách hàng mới" class="btn btn-default" /> |
+                @Html.ActionLink("Quay trở lại trang khách hàng", "Index")
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

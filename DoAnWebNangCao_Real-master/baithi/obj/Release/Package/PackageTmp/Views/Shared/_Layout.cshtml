@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="main">
+        <div id="side-bar">
+            <ul class="nav navbar-nav">
+                <li><i class="fas fa-home"></i>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Sản phẩm", "Index", "sanphams")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Hóa đơn", "Index", "hdchitiets")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Khách hàng", "Index", "kh_hang")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Nhà cung cấp", "Index", "nccs")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Nhân viên", "Index", "nvs")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Loại sản phẩm", "Index", "loais")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Kho sản phẩm", "Index", "khohangs")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Hãng", "Index", "hangs")</li>
+                <li><i class="fas fa-arrow-alt-circle-right"></i>@Html.ActionLink("Bán hàng", "Index", "banhangs")</li>
+            </ul>
+        </div>
+        <div id="main-content">
+            <div class="title">
+                <p>@ViewBag.Title</p>
+            </div>
+            @RenderBody()
+        </div>
+
+    </div>
+    <footer>
+        
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://kit.fontawesome.com/a7f9139fa6.js" crossorigin="anonymous"></script>
+</body>
+</html>

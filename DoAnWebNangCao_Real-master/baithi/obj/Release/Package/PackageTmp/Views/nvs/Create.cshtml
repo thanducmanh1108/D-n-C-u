@@ -1,0 +1,82 @@
+﻿@model baithi.Models.nv
+
+@{
+    ViewBag.Title = "Nhân viên mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên nhân viên</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tennv, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tennv, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Giới tính</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gioitinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gioitinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Năm sinh</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.namsinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.namsinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Địa chỉ</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.diachi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Số điện thoại</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sdt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sdt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Chức vụ</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.chucvu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.chucvu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Lương cơ bản</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.luong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.luong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu nhân viên mới" class="btn btn-default" /> |
+                @Html.ActionLink("Trở lại trang nhân viên", "Index")
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<baithi.Models.kh_hang>
+
+@{
+    ViewBag.Title = "Khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+        @TempData["AlertMessage"]
+    </div>
+}
+<script>
+    $("#AlertBox").removeClass("hide");
+    $("#AlertBox").delay(3000).slideUp(500);
+</script>
+
+<p class="create" style="text-align:left">
+    @Html.ActionLink("Thêm khách hàng mới", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên khách hàng
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenkhachhang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diachi)
+            </td>
+            <td class="custom-icon">
+                @Html.ActionLink("Sửa", "Edit", new { id = item.IDkhachhang }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.IDkhachhang })
+            </td>
+        </tr>
+    }
+
+</table>

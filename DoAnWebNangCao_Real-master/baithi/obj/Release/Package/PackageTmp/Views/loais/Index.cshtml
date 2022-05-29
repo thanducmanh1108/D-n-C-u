@@ -1,0 +1,38 @@
+﻿@model IEnumerable<baithi.Models.loai>
+
+@{
+    ViewBag.Title = "Thể loại";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên loại
+        </th>
+        <th>
+            Công dụng
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenloai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.congdung)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.IDloai }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.IDloai })
+        </td>
+    </tr>
+}
+
+</table>
+<p class="create">
+    @Html.ActionLink("Tạo thể loại mới", "Create")
+</p>

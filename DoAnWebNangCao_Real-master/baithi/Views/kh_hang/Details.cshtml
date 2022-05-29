@@ -1,0 +1,43 @@
+﻿@model baithi.Models.kh_hang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>kh_hang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenkhachhang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenkhachhang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDkhachhang }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

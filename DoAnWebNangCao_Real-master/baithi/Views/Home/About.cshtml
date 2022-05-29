@@ -1,0 +1,403 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Mạnh Ngọc Hoàng </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    @*===================Header@*===================*@
+    <div class="container-fuild top-bar">
+        <div class="dashboard">
+            <a href="https://localhost:44340/"><i class="fas fa-tachometer-alt"></i>Quản Lý</a>
+        </div>
+    </div>
+    <header class="container-fuild" style="background: #eeebe8">
+        <a class="navbar-brand logo" href="#">
+            <img src="~/Images/H.png" alt="">
+        </a>
+    </header>
+
+    @*===================Main@*===================*@
+    <div class="container-fuild banner-top">
+        <div class="owl-banner-top owl-carousel owl-theme">
+            <div class="item">
+                <img src="~/Images/images.png" alt="" srcset="">
+            </div>
+            <div class="item">
+                <img src="~/Images/blazonsld.jpg" alt="" srcset="">
+            </div>
+            <div class="item">
+                <img src="~/Images/caldiasld.jpg" alt="" srcset="">
+            </div>
+            <div class="item">
+                <img src="~/Images/luviassld.jpg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+
+
+    <section class="experience">
+        <div class="container">
+            <div class="box-text">
+                <h2 class="section-title">20 NĂM KINH NGHIỆM KINH DOANH ĐỒ CÂU</h2>
+                <hr class="section-hr">
+                <h3 class="section-desc">ĐẢM BẢO CHẤT LƯỢNG - UY TÍN SỐ 1</h3>
+            </div>
+            <div class="row service">
+                <div class="col-md-4 col-12">
+                    <div class="box-service">
+                        <div class="box-img">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="box-text">
+                            <p>ĐẶT HÀNG NHANH</p>
+                            <p>Gọi ngay <a href="tel:+0886810326">0886810326</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="box-service">
+                        <div class="box-img">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="box-text">
+                            <p>GIAO HÀNG NHANH</p>
+                            <p>Giao hàng nội thành trong 2-3h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="box-service">
+                        <div class="box-img">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div class="box-text">
+                            <p>100% ĐƠN HÀNG CHO KIỂM TRA</p>
+                            <p>Hoàn trả nếu không đúng yêu câu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container-fluid product-saphet">
+
+        <div class="container" style="background: #fff">
+            <div class="title-box-product">
+                <h2>Sản phẩm mới</h2>
+            </div>
+            <div class="row custom-height">
+
+                @foreach (var item in ViewBag.sp_moi)
+                {
+                    <div class="col-md-3">
+                        <div class="box-product click-show-@item.IDsp">
+                            <div class="box-img">
+                                <img class="img-home" src="~/Images/@item.anh" />
+                            </div>
+                            <p class="name-product">@item.tensp</p>
+                            <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                        </div>
+                        <div class="box-popup box-popup-@item.IDsp">
+                            <div class="product-popup">
+                                <div class="box-img">
+                                    <img src="~/Images/@item.anh" />
+                                </div>
+                                <div class="box-text">
+                                    <p class="name-product">@item.tensp</p>
+                                    <p class="total-product">Số lượng còn trong kho: <span class="number-product">@item.soluong</span></p>
+                                    <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                                    <p class="desc-product">@item.mota</p>
+                                    <span class="close-popup">X</span>
+                                    <a class="buynow" href="tel:+0886810326">Gọi đặt hàng ngay</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-popup bg-@item.IDsp">
+                        </div>
+                        <script>
+
+                                $(".click-show-@item.IDsp").click(function () {
+                                    $('.box-popup-@item.IDsp').addClass('show-popup');
+                                    $('.bg-popup').css('display','block');
+
+                                });
+                                $(".close-popup").click(function () {
+                                    $('.box-popup-@item.IDsp').removeClass('show-popup');
+                                    $('.bg-popup').css('display', 'none');
+
+                                });
+
+                        </script>
+                    </div>
+
+                }
+
+            </div>
+            <p style="text-align: center">
+                <span class="read-more">Xem thêm</span>
+                <span class="un-read-more">Thu gọn</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="container" style="background: #fff">
+            <div class="title-box-product">
+                <h2>Cần câu cá</h2>
+            </div>
+            <div class="row custom-height">
+
+                @foreach (var item in ViewBag.sp_can_cau_ca)
+                {
+                    <div class="col-md-3">
+                        <div class="box-product click-show-@item.IDsp">
+                            <div class="box-img">
+                                <img class="img-home" src="~/Images/@item.anh" />
+                            </div>
+                            <p class="name-product">@item.tensp</p>
+                            <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                        </div>
+                        <div class="box-popup box-popup-@item.IDsp">
+                            <div class="product-popup">
+                                <div class="box-img">
+                                    <img src="~/Images/@item.anh" />
+                                </div>
+                                <div class="box-text">
+                                    <p class="name-product">@item.tensp</p>
+                                    <p class="total-product">Số lượng còn trong kho: <span class="number-product">@item.soluong</span></p>
+                                    <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                                    <p class="desc-product">@item.mota</p>
+                                    <span class="close-popup">X</span>
+                                    <a class="buynow" href="tel:+0886810326">Gọi đặt hàng ngay</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-popup bg-@item.IDsp">
+                        </div>
+                        <script>
+
+                                $(".click-show-@item.IDsp").click(function () {
+                                    $('.box-popup-@item.IDsp').addClass('show-popup');
+                                    $('.bg-popup').css('display','block');
+
+                                });
+                                $(".close-popup").click(function () {
+                                    $('.box-popup-@item.IDsp').removeClass('show-popup');
+                                    $('.bg-popup').css('display', 'none');
+
+                                });
+
+                        </script>
+                    </div>
+
+                }
+
+            </div>
+            <p style="text-align: center">
+                <span class="read-more">Xem thêm</span>
+                <span class="un-read-more">Thu gọn</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid product-saphet">
+
+        <div class="container" style="background: #fff">
+            <div class="title-box-product">
+                <h2>Máy câu cá</h2>
+            </div>
+            <div class="row custom-height">
+
+                @foreach (var item in ViewBag.sp_may_cau_ca)
+                {
+                    <div class="col-md-3">
+                        <div class="box-product click-show-@item.IDsp">
+                            <div class="box-img">
+                                <img class="img-home" src="~/Images/@item.anh" />
+                            </div>
+                            <p class="name-product">@item.tensp</p>
+                            <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                        </div>
+                        <div class="box-popup box-popup-@item.IDsp">
+                            <div class="product-popup">
+                                <div class="box-img">
+                                    <img src="~/Images/@item.anh" />
+                                </div>
+                                <div class="box-text">
+                                    <p class="name-product">@item.tensp</p>
+                                    <p class="total-product">Số lượng còn trong kho: <span class="number-product">@item.soluong</span></p>
+                                    <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                                    <p class="desc-product">@item.mota</p>
+                                    <span class="close-popup">X</span>
+                                    <a class="buynow" href="tel:+0886810326">Gọi đặt hàng ngay</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-popup bg-@item.IDsp">
+                        </div>
+                        <script>
+
+                                $(".click-show-@item.IDsp").click(function () {
+                                    $('.box-popup-@item.IDsp').addClass('show-popup');
+                                    $('.bg-popup').css('display','block');
+
+                                });
+                                $(".close-popup").click(function () {
+                                    $('.box-popup-@item.IDsp').removeClass('show-popup');
+                                    $('.bg-popup').css('display', 'none');
+
+                                });
+
+                        </script>
+                    </div>
+
+                }
+
+            </div>
+            <p style="text-align: center">
+                <span class="read-more">Xem thêm</span>
+                <span class="un-read-more">Thu gọn</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid product-saphet">
+
+        <div class="container" style="background: #fff">
+            <div class="title-box-product">
+                <h2>Mồi câu cá</h2>
+            </div>
+            <div class="row custom-height">
+
+                @foreach (var item in ViewBag.sp_moi_cau_ca)
+                {
+                    <div class="col-md-3">
+                        <div class="box-product click-show-@item.IDsp">
+                            <div class="box-img">
+                                <img class="img-home" src="~/Images/@item.anh" />
+                            </div>
+                            <p class="name-product">@item.tensp</p>
+                            <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                        </div>
+                        <div class="box-popup box-popup-@item.IDsp">
+                            <div class="product-popup">
+                                <div class="box-img">
+                                    <img src="~/Images/@item.anh" />
+                                </div>
+                                <div class="box-text">
+                                    <p class="name-product">@item.tensp</p>
+                                    <p class="total-product">Số lượng còn trong kho: <span class="number-product">@item.soluong</span></p>
+                                    <p class="price-product">Giá tiền: <span class="number-product">@item.giathanh VNĐ</span></p>
+                                    <p class="desc-product">@item.mota</p>
+                                    <span class="close-popup">X</span>
+                                    <a class="buynow" href="tel:+0886810326">Gọi đặt hàng ngay</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-popup bg-@item.IDsp">
+                        </div>
+                        <script>
+
+                                $(".click-show-@item.IDsp").click(function () {
+                                    $('.box-popup-@item.IDsp').addClass('show-popup');
+                                    $('.bg-popup').css('display','block');
+
+                                });
+                                $(".close-popup").click(function () {
+                                    $('.box-popup-@item.IDsp').removeClass('show-popup');
+                                    $('.bg-popup').css('display', 'none');
+
+                                });
+
+                        </script>
+                    </div>
+
+                }
+
+            </div>
+            <p style="text-align: center">
+                <span class="read-more">Xem thêm</span>
+                <span class="un-read-more">Thu gọn</span>
+            </p>
+        </div>
+    </div>
+
+    @*===================Footer@*===================*@
+    <section class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-12">
+                    <h2 class="title-heading-footer">Mạnh Ngọc Hoàng FISHING</h2>
+                    <ul class="course">
+                        <li>Shop dụng cụ câu cá Mạnh Ngọc Hoàng</li>
+                        <li>ĐC: Số 235 Hoàng Quốc Việt - TP.HN</li>
+                        <li>Hot Line: <a href="tel:+0886810326">0886810326</a></li>
+                        <li>Chuyên cung cấp sỉ và lẻ các loại cần câu, máy câu, dây câu, lưỡi, phao, mồi và phụ kiện đi câu chính hãng.</li>
+                    </ul>
+
+                </div>
+                <div class="col-md-3 col-12">
+                    <h2 class="title-heading-footer">LIÊN HỆ</h2>
+                    <ul class="course">
+                        <li>Giấy chứng nhận đăng ký kinh doanh số: 10</li>
+                        <li>Ngày cấp: 20 tháng 5 năm 2011</li>
+                        <li>Chủ sở hữu: Mạnh Ngọc Hoàng Fishing Co.ltd</li>
+                        <li>Mail: thanducmanh@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-12">
+                    <h2 class="title-heading-footer">FANPAGE</h2>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdocauhoangiang%2F&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+                <div class="col-md-3 col-12">
+                    <h2 class="title-heading-footer">BẢN ĐỒ</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.657060482403!2d105.7827275154837!3d21.046403592550377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abb158a2305d%3A0x5c357d21c785ea3d!2zxJDhuqFpIGjhu41jIMSQaeG7h24gTOG7sWM!5e0!3m2!1svi!2s!4v1624123562102!5m2!1svi!2s" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="call-now-button ui-draggable ui-draggable-handle" id="draggable">
+        <div>
+            <p class="call-text"> 0866810326 </p>
+            <a href="tel:0866810326" id="quickcallbutton" onclick="ga('send', 'event', 'Contact', 'Quick Call Button', 'Phone');" title="Call Now">
+                <div class="quick-alo-ph-circle active"></div>
+                <div class="quick-alo-ph-circle-fill active"></div>
+                <div class="quick-alo-ph-img-circle shake"></div>
+            </a>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/jquery.countUp.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="https://kit.fontawesome.com/a7f9139fa6.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

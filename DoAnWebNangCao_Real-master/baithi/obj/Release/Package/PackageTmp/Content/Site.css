@@ -1,0 +1,261 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+table.table tr th, table.table tr td {
+    position: relative;
+}
+
+    table.table tr th:after, table.table tr td:after {
+        content: "";
+        background: #ddd;
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+table.table tr th:last-child():after, table.table tr td:last-child():after{
+    display: none;
+}
+
+/* Custom CSS */
+p{
+    margin: 0;
+}
+img{
+    width: 100%;
+}
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+#side-bar{
+    width: 15%;
+    background: #2d2d2d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-right: 1px solid #fff;
+}
+#main-content {
+    width: 85%;
+    margin-left: 15%;
+}
+
+#side-bar li{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 10px;
+    font-size: 20px;
+    border-bottom: 0.5px solid #ffffff90;
+}
+#side-bar li:before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #ffc940;
+    transition: all .3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#side-bar li:hover:before{
+    width: 100%;
+}
+#side-bar li:hover a, #side-bar li:hover i{
+    color: #000;
+}
+#side-bar li i{
+    color: #fff;
+    z-index: 1;
+}
+#side-bar li a{
+    padding: 20px 10px;
+    color: #fff;
+    width: 100%;
+    transition: all .6s;
+}
+.nav > li > a:hover, .nav > li > a:focus{
+    background: none;
+}
+
+#main-content .title {
+    text-align: center;
+    padding: 20px 0;
+    background: #2d2d2d;
+    color: #fff;
+    font-size: 20px;  
+    line-height: 20px;
+}
+.products{
+    padding: 0 20px;
+}
+.products .row{
+    margin: 0;
+}
+table.table tr {
+    border-bottom: 1px solid #ddd;
+}
+/* Kho sản phẩm */
+.box-search, .create{
+    text-align: right;
+    padding-right: 30px;
+}
+.delete-product dt{
+    text-align: left;
+}
+.delete-product{
+    margin-left: 50px;
+}
+
+/* Login */
+.form-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.form-login input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    max-width: 100%;
+}
+    .form-login input[type="submit"]{
+        width: 40%;
+    }
+
+
+/* Bán hàng */
+.form-search{
+    padding: 20px;
+    position: relative;
+}
+.input-search {
+    display: table;
+    width: 100%;
+}
+.input-search i{
+    display: table-cell;
+    padding: 0 10px;
+    width: 30px;
+    background: #999;
+}
+.input-search input{
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 40px;
+}
+
+.form-search .table-search {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    z-index: 1;
+    background: beige;
+}
+
+/* Trang chủ */
+.box-notification{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.box-1, .box-2, .box-3 {
+    width: 33.333333%;
+    padding: 20px;
+}
+.box-1 .box-notification-child{
+    background: #F13434;
+}
+.box-2 .box-notification-child{
+    background: #6A64E4;
+}
+.box-3 .box-notification-child{
+    background: #C1C283;
+}
+
+.box-notification-child {
+    height: 200px;
+    position: relative;
+    border-radius: 20px;
+}
+.box-notification-child .entry-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+}
+.box-notification-child i{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 30px;
+}
+.box-notification-child .box-notification-child-count {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.img-home{
+    width: 200px;
+    height: 200px;
+}
+.col-sm-3{
+    padding: 0;
+}
+.box-product {
+    text-align: center;
+}
+.box-product .name-product{
+    font-size: 16px;
+    font-weight: bold;
+}
+.box-product .total-product{
+    font-size: 16px;
+    font-weight: bold;
+}
+.number-product {
+    color: #F13434;
+    font-size: 25px;
+}

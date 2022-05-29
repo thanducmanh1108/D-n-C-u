@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quanlydocauModelStoreContainer" CdmEntityContainer="quanlydocauEntities">
+    <EntitySetMapping Name="doanhthus">
+      <EntityTypeMapping TypeName="quanlydocauModel.doanhthu">
+        <MappingFragment StoreEntitySet="doanhthu">
+          <ScalarProperty Name="doanhthuchi" ColumnName="doanhthuchi" />
+          <ScalarProperty Name="doanhthuthu" ColumnName="doanhthuthu" />
+          <ScalarProperty Name="ngaykiem" ColumnName="ngaykiem" />
+          <ScalarProperty Name="iddoanhthu" ColumnName="iddoanhthu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hangs">
+      <EntityTypeMapping TypeName="quanlydocauModel.hang">
+        <MappingFragment StoreEntitySet="hang">
+          <ScalarProperty Name="xuatxu" ColumnName="xuatxu" />
+          <ScalarProperty Name="tenhang" ColumnName="tenhang" />
+          <ScalarProperty Name="IDhang" ColumnName="IDhang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hdchitiets">
+      <EntityTypeMapping TypeName="quanlydocauModel.hdchitiet">
+        <MappingFragment StoreEntitySet="hdchitiet">
+          <ScalarProperty Name="thanhtien" ColumnName="thanhtien" />
+          <ScalarProperty Name="IDchietkhau" ColumnName="IDchietkhau" />
+          <ScalarProperty Name="IDnv" ColumnName="IDnv" />
+          <ScalarProperty Name="dongia" ColumnName="dongia" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="IDkhachhang" ColumnName="IDkhachhang" />
+          <ScalarProperty Name="IDhdct" ColumnName="IDhdct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoadonsps">
+      <EntityTypeMapping TypeName="quanlydocauModel.hoadonsp">
+        <MappingFragment StoreEntitySet="hoadonsp">
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+          <ScalarProperty Name="ngayban" ColumnName="ngayban" />
+          <ScalarProperty Name="IDkhachhang" ColumnName="IDkhachhang" />
+          <ScalarProperty Name="IDhoadon" ColumnName="IDhoadon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kh_hang">
+      <EntityTypeMapping TypeName="quanlydocauModel.kh_hang">
+        <MappingFragment StoreEntitySet="kh_hang">
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="tenkhachhang" ColumnName="tenkhachhang" />
+          <ScalarProperty Name="IDkhachhang" ColumnName="IDkhachhang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khohangs">
+      <EntityTypeMapping TypeName="quanlydocauModel.khohang">
+        <MappingFragment StoreEntitySet="khohang">
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+          <ScalarProperty Name="IDkho" ColumnName="IDkho" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loais">
+      <EntityTypeMapping TypeName="quanlydocauModel.loai">
+        <MappingFragment StoreEntitySet="loai">
+          <ScalarProperty Name="congdung" ColumnName="congdung" />
+          <ScalarProperty Name="tenloai" ColumnName="tenloai" />
+          <ScalarProperty Name="IDloai" ColumnName="IDloai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nccs">
+      <EntityTypeMapping TypeName="quanlydocauModel.ncc">
+        <MappingFragment StoreEntitySet="ncc">
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="tenncc" ColumnName="tenncc" />
+          <ScalarProperty Name="IDncc" ColumnName="IDncc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nvs">
+      <EntityTypeMapping TypeName="quanlydocauModel.nv">
+        <MappingFragment StoreEntitySet="nv">
+          <ScalarProperty Name="luong" ColumnName="luong" />
+          <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="namsinh" ColumnName="namsinh" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="tennv" ColumnName="tennv" />
+          <ScalarProperty Name="IDnv" ColumnName="IDnv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Taikhoans">
+      <EntityTypeMapping TypeName="quanlydocauModel.Taikhoan">
+        <MappingFragment StoreEntitySet="Taikhoan">
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="pass_word" ColumnName="pass_word" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sanphams">
+      <EntityTypeMapping TypeName="quanlydocauModel.sanpham">
+        <MappingFragment StoreEntitySet="sanpham">
+          <ScalarProperty Name="mota" ColumnName="mota" />
+          <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+          <ScalarProperty Name="giathanh" ColumnName="giathanh" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="hang" ColumnName="hang" />
+          <ScalarProperty Name="loai" ColumnName="loai" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="IDsp" ColumnName="IDsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="quanlydocauModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="tonghoadon" ColumnName="tonghoadon" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="idorder" ColumnName="idorder" />
+          <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+          <ScalarProperty Name="soluongmua" ColumnName="soluongmua" />
+          <ScalarProperty Name="idsanpham" ColumnName="idsanpham" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="quanlydocauModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="IDkhach" ColumnName="IDkhach" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

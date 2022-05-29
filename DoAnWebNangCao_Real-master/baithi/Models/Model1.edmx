@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanlyDocauModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="doanhthu">
+          <Key>
+            <PropertyRef Name="iddoanhthu" />
+          </Key>
+          <Property Name="iddoanhthu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ngaykiem" Type="date" />
+          <Property Name="doanhthuthu" Type="nvarchar" MaxLength="50" />
+          <Property Name="doanhthuchi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="hang">
+          <Key>
+            <PropertyRef Name="IDhang" />
+          </Key>
+          <Property Name="IDhang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenhang" Type="nvarchar" MaxLength="50" />
+          <Property Name="xuatxu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="hdchitiet">
+          <Key>
+            <PropertyRef Name="IDhdct" />
+          </Key>
+          <Property Name="IDhdct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDkhachhang" Type="int" />
+          <Property Name="tensp" Type="nvarchar" MaxLength="50" />
+          <Property Name="soluong" Type="int" />
+          <Property Name="dongia" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDnv" Type="int" />
+          <Property Name="IDchietkhau" Type="int" />
+          <Property Name="thanhtien" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="hoadonsp">
+          <Key>
+            <PropertyRef Name="IDhoadon" />
+          </Key>
+          <Property Name="IDhoadon" Type="int" Nullable="false" />
+          <Property Name="IDkhachhang" Type="int" />
+          <Property Name="ngayban" Type="date" />
+          <Property Name="tongtien" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="kh_hang">
+          <Key>
+            <PropertyRef Name="IDkhachhang" />
+          </Key>
+          <Property Name="IDkhachhang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenkhachhang" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="varchar" MaxLength="50" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="khohang">
+          <Key>
+            <PropertyRef Name="IDkho" />
+          </Key>
+          <Property Name="IDkho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenkho" Type="nvarchar" MaxLength="50" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="loai">
+          <Key>
+            <PropertyRef Name="IDloai" />
+          </Key>
+          <Property Name="IDloai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenloai" Type="nvarchar" MaxLength="50" />
+          <Property Name="congdung" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ncc">
+          <Key>
+            <PropertyRef Name="IDncc" />
+          </Key>
+          <Property Name="IDncc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenncc" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+          <Property Name="diachi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="nv">
+          <Key>
+            <PropertyRef Name="IDnv" />
+          </Key>
+          <Property Name="IDnv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tennv" Type="nvarchar" MaxLength="50" />
+          <Property Name="gioitinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="namsinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+          <Property Name="chucvu" Type="nvarchar" MaxLength="50" />
+          <Property Name="luong" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDkhach" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idsanpham" Type="int" />
+          <Property Name="soluongmua" Type="int" />
+          <Property Name="tongtien" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="idorder" Type="int" />
+          <Property Name="tensp" Type="nvarchar(max)" />
+          <Property Name="tonghoadon" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ngaymua" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sanpham">
+          <Key>
+            <PropertyRef Name="IDsp" />
+          </Key>
+          <Property Name="IDsp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tensp" Type="nvarchar" MaxLength="50" />
+          <Property Name="size" Type="nvarchar" MaxLength="50" />
+          <Property Name="loai" Type="int" />
+          <Property Name="hang" Type="int" />
+          <Property Name="soluong" Type="int" />
+          <Property Name="giathanh" Type="nvarchar" MaxLength="50" />
+          <Property Name="anh" Type="nvarchar(max)" />
+          <Property Name="tenkho" Type="int" />
+          <Property Name="mota" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Taikhoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass_word" Type="nvarchar" MaxLength="50" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="QuanlyDocauModelStoreContainer">
+          <EntitySet Name="doanhthu" EntityType="Self.doanhthu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hang" EntityType="Self.hang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hdchitiet" EntityType="Self.hdchitiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hoadonsp" EntityType="Self.hoadonsp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kh_hang" EntityType="Self.kh_hang" Schema="dbo" Table="kh.hang" store:Type="Tables" />
+          <EntitySet Name="khohang" EntityType="Self.khohang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loai" EntityType="Self.loai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ncc" EntityType="Self.ncc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nv" EntityType="Self.nv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sanpham" EntityType="Self.sanpham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Taikhoan" EntityType="Self.Taikhoan" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanlyDocauModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="doanhthu">
+          <Key>
+            <PropertyRef Name="iddoanhthu" />
+          </Key>
+          <Property Name="iddoanhthu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ngaykiem" Type="DateTime" Precision="0" />
+          <Property Name="doanhthuthu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doanhthuchi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="hang">
+          <Key>
+            <PropertyRef Name="IDhang" />
+          </Key>
+          <Property Name="IDhang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="xuatxu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="hdchitiet">
+          <Key>
+            <PropertyRef Name="IDhdct" />
+          </Key>
+          <Property Name="IDhdct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDkhachhang" Type="Int32" />
+          <Property Name="tensp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soluong" Type="Int32" />
+          <Property Name="dongia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDnv" Type="Int32" />
+          <Property Name="IDchietkhau" Type="Int32" />
+          <Property Name="thanhtien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="hoadonsp">
+          <Key>
+            <PropertyRef Name="IDhoadon" />
+          </Key>
+          <Property Name="IDhoadon" Type="Int32" Nullable="false" />
+          <Property Name="IDkhachhang" Type="Int32" />
+          <Property Name="ngayban" Type="DateTime" Precision="0" />
+          <Property Name="tongtien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="kh_hang">
+          <Key>
+            <PropertyRef Name="IDkhachhang" />
+          </Key>
+          <Property Name="IDkhachhang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenkhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="khohang">
+          <Key>
+            <PropertyRef Name="IDkho" />
+          </Key>
+          <Property Name="IDkho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenkho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="loai">
+          <Key>
+            <PropertyRef Name="IDloai" />
+          </Key>
+          <Property Name="IDloai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenloai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="congdung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ncc">
+          <Key>
+            <PropertyRef Name="IDncc" />
+          </Key>
+          <Property Name="IDncc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenncc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="nv">
+          <Key>
+            <PropertyRef Name="IDnv" />
+          </Key>
+          <Property Name="IDnv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tennv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="namsinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="luong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDkhach" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idsanpham" Type="Int32" />
+          <Property Name="soluongmua" Type="Int32" />
+          <Property Name="tongtien" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idorder" Type="Int32" />
+          <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tonghoadon" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ngaymua" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="sanpham">
+          <Key>
+            <PropertyRef Name="IDsp" />
+          </Key>
+          <Property Name="IDsp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tensp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loai" Type="Int32" />
+          <Property Name="hang" Type="Int32" />
+          <Property Name="soluong" Type="Int32" />
+          <Property Name="giathanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tenkho" Type="Int32" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Taikhoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass_word" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="quanlydocauEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="doanhthus" EntityType="Self.doanhthu" />
+          <EntitySet Name="hangs" EntityType="Self.hang" />
+          <EntitySet Name="hdchitiets" EntityType="Self.hdchitiet" />
+          <EntitySet Name="hoadonsps" EntityType="Self.hoadonsp" />
+          <EntitySet Name="kh_hang" EntityType="Self.kh_hang" />
+          <EntitySet Name="khohangs" EntityType="Self.khohang" />
+          <EntitySet Name="loais" EntityType="Self.loai" />
+          <EntitySet Name="nccs" EntityType="Self.ncc" />
+          <EntitySet Name="nvs" EntityType="Self.nv" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="sanphams" EntityType="Self.sanpham" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Taikhoans" EntityType="Self.Taikhoan" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanlyDocauModelStoreContainer" CdmEntityContainer="quanlydocauEntities">
+          <EntitySetMapping Name="doanhthus">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.doanhthu">
+              <MappingFragment StoreEntitySet="doanhthu">
+                <ScalarProperty Name="iddoanhthu" ColumnName="iddoanhthu" />
+                <ScalarProperty Name="ngaykiem" ColumnName="ngaykiem" />
+                <ScalarProperty Name="doanhthuthu" ColumnName="doanhthuthu" />
+                <ScalarProperty Name="doanhthuchi" ColumnName="doanhthuchi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hangs">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.hang">
+              <MappingFragment StoreEntitySet="hang">
+                <ScalarProperty Name="IDhang" ColumnName="IDhang" />
+                <ScalarProperty Name="tenhang" ColumnName="tenhang" />
+                <ScalarProperty Name="xuatxu" ColumnName="xuatxu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hdchitiets">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.hdchitiet">
+              <MappingFragment StoreEntitySet="hdchitiet">
+                <ScalarProperty Name="IDhdct" ColumnName="IDhdct" />
+                <ScalarProperty Name="IDkhachhang" ColumnName="IDkhachhang" />
+                <ScalarProperty Name="tensp" ColumnName="tensp" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="dongia" ColumnName="dongia" />
+                <ScalarProperty Name="IDnv" ColumnName="IDnv" />
+                <ScalarProperty Name="IDchietkhau" ColumnName="IDchietkhau" />
+                <ScalarProperty Name="thanhtien" ColumnName="thanhtien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoadonsps">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.hoadonsp">
+              <MappingFragment StoreEntitySet="hoadonsp">
+                <ScalarProperty Name="IDhoadon" ColumnName="IDhoadon" />
+                <ScalarProperty Name="IDkhachhang" ColumnName="IDkhachhang" />
+                <ScalarProperty Name="ngayban" ColumnName="ngayban" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kh_hang">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.kh_hang">
+              <MappingFragment StoreEntitySet="kh_hang">
+                <ScalarProperty Name="IDkhachhang" ColumnName="IDkhachhang" />
+                <ScalarProperty Name="tenkhachhang" ColumnName="tenkhachhang" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khohangs">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.khohang">
+              <MappingFragment StoreEntitySet="khohang">
+                <ScalarProperty Name="IDkho" ColumnName="IDkho" />
+                <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loais">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.loai">
+              <MappingFragment StoreEntitySet="loai">
+                <ScalarProperty Name="IDloai" ColumnName="IDloai" />
+                <ScalarProperty Name="tenloai" ColumnName="tenloai" />
+                <ScalarProperty Name="congdung" ColumnName="congdung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nccs">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.ncc">
+              <MappingFragment StoreEntitySet="ncc">
+                <ScalarProperty Name="IDncc" ColumnName="IDncc" />
+                <ScalarProperty Name="tenncc" ColumnName="tenncc" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nvs">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.nv">
+              <MappingFragment StoreEntitySet="nv">
+                <ScalarProperty Name="IDnv" ColumnName="IDnv" />
+                <ScalarProperty Name="tennv" ColumnName="tennv" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="namsinh" ColumnName="namsinh" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+                <ScalarProperty Name="luong" ColumnName="luong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDkhach" ColumnName="IDkhach" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idsanpham" ColumnName="idsanpham" />
+                <ScalarProperty Name="soluongmua" ColumnName="soluongmua" />
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
+                <ScalarProperty Name="idorder" ColumnName="idorder" />
+                <ScalarProperty Name="tensp" ColumnName="tensp" />
+                <ScalarProperty Name="tonghoadon" ColumnName="tonghoadon" />
+                <ScalarProperty Name="ngaymua" ColumnName="ngaymua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sanphams">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.sanpham">
+              <MappingFragment StoreEntitySet="sanpham">
+                <ScalarProperty Name="IDsp" ColumnName="IDsp" />
+                <ScalarProperty Name="tensp" ColumnName="tensp" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="hang" ColumnName="hang" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+                <ScalarProperty Name="giathanh" ColumnName="giathanh" />
+                <ScalarProperty Name="anh" ColumnName="anh" />
+                <ScalarProperty Name="tenkho" ColumnName="tenkho" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taikhoans">
+            <EntityTypeMapping TypeName="QuanlyDocauModel.Taikhoan">
+              <MappingFragment StoreEntitySet="Taikhoan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="pass_word" ColumnName="pass_word" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

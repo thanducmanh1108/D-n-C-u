@@ -1,0 +1,47 @@
+﻿@model baithi.Models.ncc
+
+@{
+    ViewBag.Title = "Xóa nhà cung cấp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên nhà cung cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenncc)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa nhà cung cấp" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại trang nhà cung cấp", "Index")
+        </div>
+    }
+</div>

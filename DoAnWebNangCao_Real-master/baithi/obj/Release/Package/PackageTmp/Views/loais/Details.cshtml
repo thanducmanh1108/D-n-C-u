@@ -1,0 +1,35 @@
+﻿@model baithi.Models.loai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>loai</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenloai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenloai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.congdung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.congdung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDsp }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

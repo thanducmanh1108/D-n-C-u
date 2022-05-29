@@ -1,0 +1,459 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+table.table tr th, table.table tr td {
+    position: relative;
+}
+
+    table.table tr th:after, table.table tr td:after {
+        content: "";
+        background: #ddd;
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+table.table tr th:last-child():after, table.table tr td:last-child():after{
+    display: none;
+}
+
+/* Custom CSS */
+p{
+    margin: 0;
+}
+img{
+    width: 100%;
+}
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+.logo-dash{
+    text-align: center;
+}
+.logo-dash img {
+    width: 126px;
+}
+.none-li:before{
+    display: none !important;
+}
+.none-li {
+    background: #eeebe8;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+.none-li img{
+    width: 80px;
+}
+
+
+
+
+
+#side-bar {
+    width: 11%;
+    background: #00184B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-right: 1px solid #fff;
+    z-index: 2;
+}
+#main-content {
+    width: 89%;
+    margin-left: 11%;
+}
+
+#side-bar li{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 10px;
+    font-size: 20px;
+    border-bottom: 0.5px solid #ffffff90;
+}
+#side-bar li:before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #0091ff;
+    transition: all .3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#side-bar li:hover:before{
+    width: 100%;
+}
+#side-bar li:hover a, #side-bar li:hover i{
+    color: #fff;
+}
+#side-bar li i{
+    color: #fff;
+    z-index: 1;
+}
+#side-bar li a{
+    padding: 16px 10px;
+    color: #fff;
+    width: 100%;
+    transition: all .6s;
+}
+.nav > li > a:hover, .nav > li > a:focus{
+    background: none;
+}
+
+#main-content .title {
+    text-align: center;
+    padding: 0;
+    background: #eeebe8;
+    color: #fff;
+    line-height: 20px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 39px;
+    font-weight: 500;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    left: 0;
+}
+.products{
+    padding: 0 20px;
+}
+.products .row{
+    margin: 0;
+}
+table.table tr {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.table > thead:first-child > tr:first-child > th {
+    border-top: 1px solid #ddd !important;
+}
+/* Kho sản phẩm */
+.box-search, .create {
+    text-align: right;
+    padding-right: 30px;
+}
+.delete-product dt{
+    text-align: left;
+}
+.delete-product{
+    margin-left: 50px;
+}
+
+/* Login */
+.form-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.form-login input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    max-width: 100%;
+}
+    .form-login input[type="submit"]{
+        width: 40%;
+    }
+
+
+/* Bán hàng */
+.form-search{
+    padding: 20px;
+    position: relative;
+}
+.input-search {
+    display: table;
+    width: 100%;
+}
+.input-search i{
+    display: table-cell;
+    padding: 0 10px;
+    width: 30px;
+    background: #0091ff;
+    color: #fff;
+}
+.input-search input{
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 40px;
+}
+
+.form-search .table-search {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    z-index: 1;
+    background: beige;
+}
+
+/* Trang chủ */
+.box-notification{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 47px;
+}
+.box-1, .box-2, .box-3 {
+    width: 33.333333%;
+    padding: 20px;
+}
+.box-notification-child {
+    background: #fff;
+    box-shadow: 0px 0px 12px 0 #999;
+}
+
+
+.box-notification-child {
+    height: 200px;
+    position: relative;
+    border-radius: 20px;
+}
+.box-notification-child .entry-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #000;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+}
+.box-notification-child i{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #000;
+    font-size: 30px;
+}
+.box-notification-child .box-notification-child-count {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #000;
+    font-size: 30px;
+}
+
+.img-home{
+    width: 200px;
+    height: 200px;
+}
+.col-sm-3{
+    padding: 0;
+}
+.box-product {
+    text-align: center;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 12px 0 #999;
+    padding: 29px;
+    height: 345px;
+}
+.box-product .name-product{
+    font-size: 16px;
+    font-weight: bold;
+}
+.box-product .total-product{
+    font-size: 16px;
+    font-weight: bold;
+}
+.number-product {
+    color: #F13434;
+    font-size: 25px;
+}
+
+/* Check out bill */
+.box-checkout {
+    width: 565px;
+    background: #fff;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #000;
+}
+
+.box-checkout p {
+    text-align: center;
+    margin: 10px 0;
+}
+.box-checkout .shop-name{
+    font-size: 25px;
+    font-weight: bold;
+}
+.box-checkout .total-price{
+    font-weight: 600;
+    text-align: right;
+}
+.box-checkout .thank-you{
+        font-style: italic;
+    font-weight: bold;
+}
+input, select, textarea{
+    max-width: 100%;
+}
+textarea{
+    width: 100%;
+}
+.form-horizontal{
+    width: 85%;
+    margin: 0 auto;
+}
+.btn-checkout{
+    width: 565px;
+    margin: 0 auto;
+}
+.btn-checkout button{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.tru-soluong, .them-soluong {
+    border: 1px solid #000;
+    background: none;
+    margin: 0 14px;
+    display: inline-block;
+    padding: 0px 10px;
+}
+form#khachhang{
+    width: 100%;
+    margin: 0 auto;
+
+}
+form#khachhang label, form#khachhang input {
+    width: 100%;
+}
+
+
+.box-search {
+    padding: 15px;
+    text-align: center;
+}
+.box-search #SearchString {
+    width: 45%;
+}
+    .box-search button[type=submit] {
+        position: relative;
+        right: 45px;
+        background: #0091ff;
+        color: #fff;
+        border: none;
+        padding: 3px 20px;
+    }
+p.create a {
+    padding: 5px 10px;
+    background: #ffa300;
+    color: #fff;
+    display: inline-block;
+    border-radius: 16px;
+    margin: 15px;
+}
+a:hover{
+    text-decoration: none;
+}
+table.table {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+}
+table.table tbody{
+    border: 2px solid #ffa300;
+}
+table.table tbody tr:nth-child(1){
+    background: #99999940;
+}
+.custom-icon a {
+    background: #ffa300;
+    padding: 4px 13px;
+    border-radius: 13px;
+    color: #fff;
+}
+.form-search table.table {
+    width: 100%;
+    margin: 0;
+}
+.form-search table.table tbody{
+    border-color: #ddd;
+}
+.box-customer {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    padding: 50px 65px;
+    margin-top: 61px;
+    background: #99999950;
+}
+#checkout {
+    background: #00184B;
+    border-radius: 13px;
+    color: #fff;
+    font-size: 22px;
+    padding: 10px 20px !important;
+    border: none;
+}
+form#khachhang input {
+    border: none;
+    border-bottom: 1px solid #999;
+    height: 35px;
+    background: none
+}
+form#khachhang label{
+    margin: 10px 0;
+}
+
+.desc-product-sp{
+    width: 385px;
+}
+
+.box-notification-child i.icon-fix {
+    top: -35px;
+    background: red;
+    display: inline-block;
+    bottom: auto;
+    padding: 16px;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 62px;
+    box-shadow: 0px 0px 12px 0 #999;
+}
+.box-2 .box-notification-child i.icon-fix {
+    background: #0067ff;
+}
+
+.box-3 .box-notification-child i.icon-fix {
+    background: #399949;
+}

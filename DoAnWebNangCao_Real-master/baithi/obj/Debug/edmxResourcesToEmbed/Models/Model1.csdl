@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanlyDocauModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="doanhthu">
+    <Key>
+      <PropertyRef Name="iddoanhthu" />
+    </Key>
+    <Property Name="iddoanhthu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ngaykiem" Type="DateTime" Precision="0" />
+    <Property Name="doanhthuthu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doanhthuchi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hang">
+    <Key>
+      <PropertyRef Name="IDhang" />
+    </Key>
+    <Property Name="IDhang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="xuatxu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hdchitiet">
+    <Key>
+      <PropertyRef Name="IDhdct" />
+    </Key>
+    <Property Name="IDhdct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDkhachhang" Type="Int32" />
+    <Property Name="tensp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="dongia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDnv" Type="Int32" />
+    <Property Name="IDchietkhau" Type="Int32" />
+    <Property Name="thanhtien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hoadonsp">
+    <Key>
+      <PropertyRef Name="IDhoadon" />
+    </Key>
+    <Property Name="IDhoadon" Type="Int32" Nullable="false" />
+    <Property Name="IDkhachhang" Type="Int32" />
+    <Property Name="ngayban" Type="DateTime" Precision="0" />
+    <Property Name="tongtien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="kh_hang">
+    <Key>
+      <PropertyRef Name="IDkhachhang" />
+    </Key>
+    <Property Name="IDkhachhang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenkhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="khohang">
+    <Key>
+      <PropertyRef Name="IDkho" />
+    </Key>
+    <Property Name="IDkho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenkho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="loai">
+    <Key>
+      <PropertyRef Name="IDloai" />
+    </Key>
+    <Property Name="IDloai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenloai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="congdung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ncc">
+    <Key>
+      <PropertyRef Name="IDncc" />
+    </Key>
+    <Property Name="IDncc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenncc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="nv">
+    <Key>
+      <PropertyRef Name="IDnv" />
+    </Key>
+    <Property Name="IDnv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tennv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="namsinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="luong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDkhach" Type="Int32" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idsanpham" Type="Int32" />
+    <Property Name="soluongmua" Type="Int32" />
+    <Property Name="tongtien" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="idorder" Type="Int32" />
+    <Property Name="tensp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tonghoadon" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ngaymua" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="sanpham">
+    <Key>
+      <PropertyRef Name="IDsp" />
+    </Key>
+    <Property Name="IDsp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tensp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="loai" Type="Int32" />
+    <Property Name="hang" Type="Int32" />
+    <Property Name="soluong" Type="Int32" />
+    <Property Name="giathanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tenkho" Type="Int32" />
+    <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Taikhoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass_word" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="quanlydocauEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="doanhthus" EntityType="Self.doanhthu" />
+    <EntitySet Name="hangs" EntityType="Self.hang" />
+    <EntitySet Name="hdchitiets" EntityType="Self.hdchitiet" />
+    <EntitySet Name="hoadonsps" EntityType="Self.hoadonsp" />
+    <EntitySet Name="kh_hang" EntityType="Self.kh_hang" />
+    <EntitySet Name="khohangs" EntityType="Self.khohang" />
+    <EntitySet Name="loais" EntityType="Self.loai" />
+    <EntitySet Name="nccs" EntityType="Self.ncc" />
+    <EntitySet Name="nvs" EntityType="Self.nv" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="sanphams" EntityType="Self.sanpham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Taikhoans" EntityType="Self.Taikhoan" />
+  </EntityContainer>
+</Schema>

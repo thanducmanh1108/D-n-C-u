@@ -1,0 +1,35 @@
+﻿@model baithi.Models.hang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenhang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenhang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.xuatxu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.xuatxu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDhang }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

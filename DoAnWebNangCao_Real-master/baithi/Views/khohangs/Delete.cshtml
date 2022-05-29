@@ -1,0 +1,39 @@
+﻿@model baithi.Models.khohang
+
+@{
+    ViewBag.Title = "Xóa kho hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h3>Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên kho hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenkho)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa kho hàng" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại trang kho hàng", "Index")
+        </div>
+    }
+</div>

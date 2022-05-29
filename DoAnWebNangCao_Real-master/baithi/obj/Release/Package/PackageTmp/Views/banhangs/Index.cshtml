@@ -1,0 +1,98 @@
+﻿@model IEnumerable<baithi.Models.sanpham>
+
+@{
+    ViewBag.Title = "Bán hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cardlist = (List<baithi.Models.CartItem>)ViewBag.Card;
+}
+
+<div class="form-search">
+    <div class="input-search">
+        <i class="fas fa-spinner"></i>
+        <input type="text" class="form-control" id="Search" placeholder="Nhập mã hoặc tên sản phẩm để tìm kiếm" />
+    </div>
+
+
+    <table class="table table-search">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Item in Model)
+            {
+                <tr class="Search">
+                    <td>@Item.tensp</td>
+                    <td>@Item.anh</td>
+                    <td><button class="add-to-cart" data-id="@Item.IDsp">Thêm</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br>
+    <p>Hóa đơn</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (cardlist != null)
+            {
+                foreach (var carditem in cardlist)
+                {
+                    <tr>
+                        <td>@carditem.sanpham.tensp</td>
+                        <td>@carditem.sanpham.giathanh</td>
+                        <td>@carditem.Quantity</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <form id="khachhang">
+        <label>Tên khách hàng</label>
+        <input type="text" name="tenkhachhang" id="tenkhachhang" />
+        <label>Số điện thoại</label>
+        <input type="text" name="sdt" id="sdt" />
+        <label>Địa chỉ</label>
+        <input type="text" name="diachi" id="diachi" />
+    </form>
+    <button id="checkout">Hoàn thành hóa đơn</button>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/customjs.js"></script>
+<script>
+    $('.add-to-cart').off('click').on('click', function () {
+        $.ajax({
+            url: '/banhangs/Add',
+            data: {
+                quantity: 1,
+                id: $(this).data('id')
+            },
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.status == true) {
+                    location.reload();
+                }
+            }
+        })
+    });
+    $('#checkout').off('click').on('click', function () {
+        var d = $("#khachhang").serialize();
+        var url = "/banhangs/SendContact";
+        $.post(url, d, function (msg) {
+            if (msg.status == true) {
+                location.href = "/thanhtoan";
+            }
+        }, "json");
+    });
+</script>

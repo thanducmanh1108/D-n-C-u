@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid box-notification">
+    <div class="box-1">
+        <div class="box-notification-child">
+            <p class="entry-title">Sản phẩm sắp hết</p>
+            <i class="fas fa-exclamation-triangle"></i>
+            <p class="box-notification-child-count">20</p>
+        </div>
+    </div>
+    <div class="box-2">
+        <div class="box-notification-child">
+            <p class="entry-title">Doanh thu hàng tháng</p>
+            <i class="fas fa-hand-holding-usd"></i>
+            <p class="box-notification-child-count">100.000</p>
+        </div>
+    </div>
+    <div class="box-3">
+        <div class="box-notification-child">
+            <p class="entry-title">Sản phẩm tồn kho</p>
+            <i class="fas fa-exclamation-circle"></i>
+            <p class="box-notification-child-count">20</p>
+        </div>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid product-saphet">
+    <h2>Sản phẩm sắp hết</h2>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in ViewBag.sp_saphet)
+            {
+                <div class="col-sm-3">
+                    <div class="box-product">
+                        <img class="img-home" src="~/Images/@item.anh" />
+                        <p class="name-product">@item.tensp</p>
+                        <p class="total-product">Số lượng: <span class="number-product">@item.soluong</span></p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="container-fluid product-tonkho">
+    <h2>Sản phẩm tồn kho</h2>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in ViewBag.sp_tonkho)
+            {
+                <div class="col-sm-3">
+                    <div class="box-product">
+                        <img class="img-home" src="~/Images/@item.anh" />
+                        <p class="name-product">@item.tensp</p>
+                        <p class="total-product">Số lượng: <span class="number-product">@item.soluong</span></p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

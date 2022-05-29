@@ -1,0 +1,110 @@
+﻿@model List<baithi.Models.OrderDetail>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/html2canvas.js"></script>
+<script src="~/Scripts/canvas2image.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js">cl</script>
+
+<div class="box-checkout example">
+    <p class="shop-name">Cửa hàng đồ câu Mạnh Hiếu</p>
+    <p class="shop-address">Đại Học Điện Lực - 235 Hoàng Quốc Việt - Cầu Giấy - Hà Nội</p>
+    <p class="shop-datebill">Ngày xuất hóa đơn: <span id="datebill"></span></p>
+
+    <table class="table">
+        <tr>
+            <th>
+                Tên sản phẩm
+            </th>
+            <th>
+                Số lượng mua
+            </th>
+            <th>
+                Thành tiền
+            </th>
+
+        </tr>
+        <script>
+            var tonghd = 0;
+        </script>
+        @foreach (var item in Model)
+        {
+            <tr class="@item.idsanpham">
+                <td>
+                    @item.tensp
+                </td>
+                <td>
+                    <input class="soluong @item.idsanpham" name="@item.soluongmua" style="display: none" />
+                    @item.soluongmua
+                </td>
+                <td>
+                    <input class="tien @item.idsanpham" name="@item.tongtien" style="display: none" />
+                    @item.tongtien VNĐ
+                </td>
+            </tr>
+            <script>
+                var soluong = $(".soluong.@item.idsanpham").attr('name');
+
+                var tien = $(".tien.@item.idsanpham").attr('name');
+                var tong1 = tien * 1;
+                var tonghd = tong1 + tonghd;
+                        if (soluong <= 0) {
+                            $('tr.@item.idsanpham').css("display","none");
+                }
+
+            </script>
+        }
+
+    </table>
+
+    <p class="total-price">Tổng tiền: <span id="b"></span> VNĐ</p>
+    <p class="thank-you"> Xin cảm ơn quý khách!</p>
+
+</div>
+<div class="btn-checkout" style="text-align: center">
+    <button class="toCanvas">In hóa đơn</button>
+    <a href="https://localhost:44340/banhangs">Trở về trang chủ</a>
+</div>
+
+
+<script>
+    $('body').css("background", "#99999950");
+    var d = new Date();
+    var n = d.toLocaleString();
+    document.getElementById("datebill").innerHTML = n;
+</script>
+<script>
+    var test = $(".example").get(0);
+    // to canvas
+    $('.toCanvas').click(function (e) {
+        html2canvas(test).then(function (canvas) {
+            // canvas width
+            var canvasWidth = canvas.width;
+            // canvas height
+            var canvasHeight = canvas.height;
+            // render canvas
+            $('.toCanvas').after(canvas);
+            // show 'to image' button
+            $('.toPic').show(1000);
+            // convert canvas to image
+            $('.toPic').click(function (e) {
+                var img = Canvas2Image.convertToImage(canvas, canvasWidth, canvasHeight);
+                // render image
+                $(".toPic").after(img);
+                // save
+                $('#save').click(function (e) {
+                    let type = $('#sel').val(); // image type
+                    let w = $('#imgW').val(); // image width
+                    let h = $('#imgH').val(); // image height
+                    let f = $('#imgFileName').val(); // file name
+                    w = (w === '') ? canvasWidth : w;
+                    h = (h === '') ? canvasHeight : h;
+                    // save as image
+                    Canvas2Image.saveAsImage(canvas, w, h, type, f);
+                });
+            });
+        });
+    });
+    document.getElementById('b').innerHTML = tonghd;
+</script>

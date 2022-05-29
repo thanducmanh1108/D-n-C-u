@@ -1,0 +1,30 @@
+﻿@model IEnumerable<baithi.Models.sanpham>
+@{
+    ViewBag.Title = "SPbanchay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .col {
+        width: 25%;
+        max-width: 25%;
+        float: left;
+    }
+
+    .img-content {
+        width: 100%;
+    }
+</style>
+
+<h2>Sản phẩm bán chạy</h2>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <img class="img-content" src="~/Images/@item.anh" />
+                <p>@item.tensp</p>
+            </div>
+        }
+    </div>
+</div>

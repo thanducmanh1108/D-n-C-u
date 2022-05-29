@@ -1,0 +1,75 @@
+﻿@model baithi.Models.nv
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>nv</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tennv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tennv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gioitinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gioitinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.namsinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.namsinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.chucvu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chucvu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.luong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.luong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDnv }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

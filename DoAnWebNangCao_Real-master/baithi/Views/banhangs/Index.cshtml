@@ -1,0 +1,189 @@
+﻿@model IEnumerable<baithi.Models.sanpham>
+
+@{
+    ViewBag.Title = "Bán hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cardlist = (List<baithi.Models.CartItem>)ViewBag.Card;
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="form-search">
+    <div class="input-search">
+        <i class="fas fa-search"></i>
+        <input type="text" class="form-control" id="Search" placeholder="Nhập mã hoặc tên sản phẩm để tìm kiếm" />
+    </div>
+    
+
+    <table class="table table-search">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Giá tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Item in Model)
+            {
+                if (Item.soluong <= 0)
+                {
+                    <tr class="Search">
+                        <td>@Item.tensp</td>
+                        <td><img src="~/Images/@Item.anh" style="width: 50px"></td>
+                        <td>@Item.giathanh VNĐ</td>
+                        <td>Sản phẩm đã hết</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="Search">
+                        <td>@Item.tensp</td>
+                        <td><img src="~/Images/@Item.anh" style="width: 50px"></td>
+                        <td>@Item.giathanh VNĐ</td>
+                        <td><button class="add-to-cart" data-id="@Item.IDsp">Thêm</button></td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+    <br>
+    <p style="text-align: center; font-size: 25px; font-weight: bold;margin-bottom: 20px;">Hóa đơn</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                var tongtien = 0;
+            </script>
+            @if (cardlist != null)
+            {
+                foreach (var carditem in cardlist)
+                {
+                    <tr class="@carditem.sanpham.IDsp">
+                        <td>@carditem.sanpham.tensp</td>
+                        <td><input class="tien @carditem.sanpham.IDsp" name="@carditem.sanpham.giathanh" style="display: none" />@carditem.sanpham.giathanh VNĐ</td>
+                        <td><input class="soluong @carditem.sanpham.IDsp" name="@carditem.Quantity" style="display: none" /><button class="tru-soluong" data-id="@carditem.sanpham.IDsp">-</button>@carditem.Quantity<button class="them-soluong" data-id="@carditem.sanpham.IDsp">+</button></td>
+                        <td><span id="thanhtien @carditem.sanpham.IDsp"></span> VNĐ</td>
+                    </tr>
+                    <script>
+                        var soluong = $(".soluong.@carditem.sanpham.IDsp").attr('name');
+                        var tien = $(".tien.@carditem.sanpham.IDsp").attr('name');
+                        var thanhtien = tien * soluong;
+                        document.getElementById('thanhtien @carditem.sanpham.IDsp').innerHTML = thanhtien;
+                        var tongtien = thanhtien + tongtien;
+
+                        if (soluong <= 0) {
+                            $('tr.@carditem.sanpham.IDsp').css("display","none");
+                        }
+                    </script>
+                }
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td><b>Tổng hóa đơn</b></td>
+                <td><span id="a"></span> VNĐ</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="box-customer">
+        <p style="text-align: center; font-size: 22px; font-weight: bold;margin-bottom: 20px;">Thông tin khách hàng</p>
+        <form id="khachhang">
+            <label>Tên khách hàng</label>
+            <input type="text" name="tenkhachhang" id="tenkhachhang" />
+            <label>Số điện thoại</label>
+            <input type="text" name="sdt" id="sdt" />
+            <label>Địa chỉ</label>
+            <input type="text" name="diachi" id="diachi" />
+        </form>
+        <p style="text-align: center; margin: 50px 0;"><button id="checkout" style="padding: 30px">Thanh toán</button></p>
+    </div>
+</div>
+
+<script src="~/Scripts/customjs.js"></script>
+<script>
+    $('.add-to-cart').off('click').on('click', function () {
+        $.ajax({
+            url: '/banhangs/Add',
+            data: {
+                quantity: 1,
+                id: $(this).data('id')
+            },
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.status == true) {
+                    location.reload();
+                }
+            }
+        })
+    });
+    $('.delete').off('click').on('click', function () {
+        $.ajax({
+            url: '/banhangs/Delete',
+            data: {
+                quantity: 1,
+                id: $(this).data('id')
+            },
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.status == true) {
+                    location.reload();
+                }
+            }
+        })
+    });
+    $('.tru-soluong').off('click').on('click', function () {
+        $.ajax({
+            url: '/banhangs/tru',
+            data: {
+                quantity: 1,
+                id: $(this).data('id')
+            },
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.status == true) {
+                    location.reload();
+                }
+            }
+        })
+    });
+    $('.them-soluong').off('click').on('click', function () {
+        $.ajax({
+            url: '/banhangs/cong',
+            data: {
+                quantity: 1,
+                id: $(this).data('id')
+            },
+            dataType: 'json',
+            type: 'POST',
+            success: function (res) {
+                if (res.status == true) {
+                    location.reload();
+                }
+            }
+        })
+    });
+    $('#checkout').off('click').on('click', function () {
+        var d = $("#khachhang").serialize();
+        var url = "/banhangs/SendContact";
+        $.post(url, d, function (msg) {
+            if (msg.status == true) {
+                location.href = "/thanhtoan";
+            }
+        }, "json");
+    });
+    document.getElementById('a').innerHTML = tongtien;
+</script>
